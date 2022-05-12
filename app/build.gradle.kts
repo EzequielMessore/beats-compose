@@ -4,7 +4,7 @@ import Dependencies.Testing
 
 plugins {
     id(Plugins.Android.application)
-    id(Plugins.kotlin)
+    kotlin("android")
 }
 
 android {

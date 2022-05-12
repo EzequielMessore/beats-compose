@@ -1,4 +1,5 @@
 object Versions {
+    const val detekt = "1.20.0"
     const val gradle = "7.1.1"
     const val kotlin = "1.6.10"
 
