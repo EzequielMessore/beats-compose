@@ -36,6 +36,7 @@ detekt {
     toolVersion = Versions.detekt
     source = files(
         "${projectDir}/app/src",
+        "${projectDir}/buildSrc/src",
         "${projectDir}/data/remote/src",
     )
     config = files("${projectDir}/detekt/detekt.yml")
