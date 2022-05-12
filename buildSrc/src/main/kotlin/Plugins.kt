@@ -14,5 +14,4 @@ object Plugins {
         const val jvm = "org.jetbrains.kotlin.jvm"
         const val kotlin = "org.jetbrains.kotlin.android"
     }
-
 }
