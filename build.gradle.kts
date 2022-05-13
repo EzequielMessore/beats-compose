@@ -1,5 +1,6 @@
 plugins {
     id(Plugins.detekt) version Versions.detekt
+    id(Plugins.Jetbrains.jvm) version Versions.kotlin apply false
 }
 
 buildscript {
@@ -29,7 +30,7 @@ tasks.register("clean", Delete::class) {
 }
 
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.detekt}")
+    detektPlugins(Dependencies.detektFormatting)
 }
 
 detekt {
@@ -37,7 +38,9 @@ detekt {
     source = files(
         "${projectDir}/app/src",
         "${projectDir}/buildSrc/src",
+        "${projectDir}/data/data/src",
         "${projectDir}/data/remote/src",
+        "${projectDir}/domain/src",
     )
     config = files("${projectDir}/detekt/detekt.yml")
     reportsDir = file("${projectDir}/build/reports/detekt/")

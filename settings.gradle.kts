@@ -1,2 +1,7 @@
 rootProject.name = "Beats Compose"
-include(":app")
+include(
+    ":app",
+    ":data:data",
+    ":data:remote",
+    ":domain",
+)

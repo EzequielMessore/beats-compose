@@ -130,8 +130,6 @@ style:
   OptionalUnit:
     active: true
     excludes: "**/src/test/java/**, **/src/test/kotlin/**"
-  OptionalWhenBraces:
-    active: true
   PreferToOverPairSyntax:
     active: true
   RedundantExplicitType:
@@ -204,9 +202,6 @@ formatting:
   Indentation:
     active: true
     autoCorrect: true
-  MaximumLineLength:
-    active: true
-    excludes: ["**/src/androidTest*/java/**", "**/src/test/java/**", "**/src/androidTest*/kotlin/**", "**/src/test/kotlin/**"]
   ModifierOrdering:
     active: true
   MultiLineIfElse:

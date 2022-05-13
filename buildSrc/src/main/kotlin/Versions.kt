@@ -1,6 +1,6 @@
 object Versions {
-    const val detekt = "1.20.0"
     const val gradle = "7.1.1"
+    const val detekt = "1.20.0"
     const val kotlin = "1.6.10"
 
     object AndroidX {
@@ -17,6 +17,21 @@ object Versions {
         const val uiTooling = compose
         const val uiTestJUnit = compose
         const val uiToolingPreview = compose
+    }
+
+    object Coroutines {
+        const val core = "1.6.1"
+        const val android = "1.6.1"
+    }
+
+    object Koin {
+        const val core = "3.1.2"
+        const val android = "3.1.2"
+    }
+
+    object SquareUp {
+        const val retrofit = "2.9.0"
+        const val loggingInterceptor = "4.9.0"
     }
 
     object Testing {

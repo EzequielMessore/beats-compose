@@ -1,5 +1,6 @@
 import Dependencies.AndroidX
 import Dependencies.Compose
+import Dependencies.Koin
 import Dependencies.Testing
 
 plugins {
@@ -58,6 +59,10 @@ android {
 }
 
 dependencies {
+    implementation(project(":data:data"))
+    implementation(project(":data:remote"))
+    implementation(project(":domain"))
+
     implementation(AndroidX.core)
     implementation(AndroidX.lifecycleRuntime)
 
@@ -65,7 +70,7 @@ dependencies {
     implementation(Compose.material)
     implementation(Compose.activity)
     implementation(Compose.uiToolingPreview)
-
+    implementation(Koin.android)
 
     testImplementation(Testing.junit)
 
