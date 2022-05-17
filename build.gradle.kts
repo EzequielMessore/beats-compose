@@ -1,6 +1,6 @@
 plugins {
-    id(Plugins.detekt) version Versions.detekt
-    id(Plugins.Jetbrains.jvm) version Versions.kotlin apply false
+    id("io.gitlab.arturbosch.detekt") version "1.20.0"
+    id("org.jetbrains.kotlin.jvm") version "1.6.10" apply false
 }
 
 buildscript {
@@ -10,18 +10,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(Dependencies.gradle)
-        classpath(Dependencies.kotlin)
-        classpath(Dependencies.detekt)
-    }
-}
-
-
-allprojects {
-    repositories {
-        google()
-        gradlePluginPortal()
-        mavenCentral()
+        classpath(libs.android.gradle)
+        classpath(libs.kotlin.gradle)
     }
 }
 
@@ -30,14 +20,15 @@ tasks.register("clean", Delete::class) {
 }
 
 dependencies {
-    detektPlugins(Dependencies.detektFormatting)
+    detektPlugins(libs.detekt.formatting)
 }
 
 detekt {
-    toolVersion = Versions.detekt
+    toolVersion = libs.versions.detekt.get()
     source = files(
         "${projectDir}/app/src",
-        "${projectDir}/buildSrc/src",
+        "${projectDir}/build-logic/src",
+        "${projectDir}/build-logic/convention/src",
         "${projectDir}/data/data/src",
         "${projectDir}/data/remote/src",
         "${projectDir}/domain/src",

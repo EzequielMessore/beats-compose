@@ -1,29 +1,9 @@
-import Dependencies.AndroidX
-import Dependencies.Compose
-import Dependencies.Koin
-import Dependencies.Testing
-
 plugins {
-    id(Plugins.Android.application)
-    kotlin("android")
+    id("beats.android.application")
+    id("beats.android.application.compose")
 }
 
 android {
-    compileSdk = AppConfig.Sdk.compile
-
-    defaultConfig {
-        applicationId = AppConfig.appId
-        minSdk = AppConfig.Sdk.min
-        targetSdk = AppConfig.Sdk.target
-        versionCode = AppConfig.Version.code
-        versionName = AppConfig.Version.name
-
-        testInstrumentationRunner = AppConfig.instrumentationTestRunner
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -33,29 +13,6 @@ android {
             )
         }
     }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.Compose.compose
-    }
-
-    packagingOptions {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
@@ -63,19 +20,20 @@ dependencies {
     implementation(project(":data:remote"))
     implementation(project(":domain"))
 
-    implementation(AndroidX.core)
-    implementation(AndroidX.lifecycleRuntime)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    implementation(Compose.ui)
-    implementation(Compose.material)
-    implementation(Compose.activity)
-    implementation(Compose.uiToolingPreview)
-    implementation(Koin.android)
+    implementation(libs.compose.ui.asProvider())
+    implementation(libs.compose.material)
+    implementation(libs.compose.activity)
+    implementation(libs.compose.ui.tooling.preview)
 
-    testImplementation(Testing.junit)
+    implementation(libs.koin.android)
 
-    androidTestImplementation(Testing.junitExt)
-    androidTestImplementation(Testing.espresso)
-    androidTestImplementation(Compose.uiTest)
-    debugImplementation(Compose.uiTooling)
+    testImplementation(libs.testing.junit)
+
+    androidTestImplementation(libs.testing.junit.ext)
+    androidTestImplementation(libs.testing.espresso)
+    androidTestImplementation(libs.compose.ui.test)
+    debugImplementation(libs.compose.ui.tooling)
 }

@@ -1,16 +1,10 @@
 plugins {
-    id(Plugins.Java.library)
-    id(Plugins.Jetbrains.jvm)
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    id("beats.java.library")
 }
 
 dependencies {
     api(project(":domain"))
 
-    implementation(Dependencies.Koin.core)
-    implementation(Dependencies.Coroutines.core)
+    implementation(libs.koin.core)
+    implementation(libs.coroutines.core)
 }
