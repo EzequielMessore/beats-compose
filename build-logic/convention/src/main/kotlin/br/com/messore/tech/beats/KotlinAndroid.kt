@@ -3,22 +3,26 @@ package br.com.messore.tech.beats
 import com.android.build.gradle.BaseExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.api.plugins.ExtensionAware
+import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
 
 @Suppress("UnstableApiUsage")
 fun Project.configureKotlinAndroid(
     commonExtension: BaseExtension,
 ) {
+    val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+    val version = libs.getAppVersion()
     commonExtension.apply {
-        compileSdkVersion(32)
+        compileSdkVersion(version.compile)
 
         defaultConfig {
-            minSdk = 26
-            targetSdk = 32
+            minSdk = version.min
+            targetSdk = version.target
 
-            versionCode = 1
-            versionName = "1.0.0"
+            versionCode = version.versionCode
+            versionName = version.versionName
             testInstrumentationRunner("androidx.test.runner.AndroidJUnitRunner")
         }
 

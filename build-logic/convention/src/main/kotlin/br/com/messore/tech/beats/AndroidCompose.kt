@@ -10,8 +10,10 @@ fun Project.configureAndroidCompose(
     commonExtension: CommonExtension<*, *, *, *>,
 ) {
     val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
+    val compile = libs.getAppVersion().compile
 
     commonExtension.apply {
+        compileSdk = compile
         buildFeatures {
             compose = true
         }
