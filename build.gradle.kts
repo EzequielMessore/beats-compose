@@ -1,6 +1,8 @@
 plugins {
-    id("io.gitlab.arturbosch.detekt") version "1.20.0"
-    id("org.jetbrains.kotlin.jvm") version "1.6.10" apply false
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.kotlin.jvm)
+    //id("io.gitlab.arturbosch.detekt") version "1.20.0"
+    //id("org.jetbrains.kotlin.jvm") version "1.6.10" apply false
 }
 
 buildscript {

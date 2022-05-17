@@ -1,4 +1,10 @@
 [versions]
+compileSdk = "32"
+minSdk = "26"
+targetSdk = "32"
+versionCode = "1"
+versionName = "1.0.0"
+
 androidGradlePlugin = "7.2.0"
 kotlin = "1.6.10"
 detekt = "1.20.0"
@@ -62,3 +68,10 @@ square-up-logging-interceptor = { group = "com.squareup.okhttp3", name = "loggin
 testing-junit = { group = "junit", name = "junit", version.ref = "junit" }
 testing-junit-ext = { group = "androidx.test.ext", name = "junit", version.ref = "junitExt" }
 testing-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+
+[bundles]
+compose = ["compose-ui", "compose-material", "compose-ui-tooling-preview", "compose-activity"]
+
+[plugins]
+detekt = { id = "io.gitlab.arturbosch.detekt", version = "detekt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "kotlin" }
