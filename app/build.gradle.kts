@@ -19,14 +19,10 @@ dependencies {
     implementation(project(":data:data"))
     implementation(project(":data:remote"))
     implementation(project(":domain"))
+    implementation(project(":ui:compose"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
-
-    implementation(libs.compose.ui.asProvider())
-    implementation(libs.compose.material)
-    implementation(libs.compose.activity)
-    implementation(libs.compose.ui.tooling.preview)
 
     implementation(libs.koin.android)
 

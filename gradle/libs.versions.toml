@@ -16,6 +16,7 @@ androidxLifecycleRuntime = "2.4.1"
 # Compose
 androidxCompose = "1.1.1"
 androidxActivity = "1.4.0"
+androidxComposeMaterial3 = "1.0.0-alpha10"
 
 # Coroutines
 coroutines = "1.6.1"
@@ -42,7 +43,7 @@ androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecyc
 
 # Compose
 compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }
-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidxCompose" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
 compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidxCompose" }
 compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "androidxCompose" }
@@ -70,8 +71,8 @@ testing-junit-ext = { group = "androidx.test.ext", name = "junit", version.ref =
 testing-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
 
 [bundles]
-compose = ["compose-ui", "compose-material", "compose-ui-tooling-preview", "compose-activity"]
+compose = ["compose-ui", "compose-material3", "compose-ui-tooling-preview", "compose-activity"]
 
 [plugins]
-detekt = { id = "io.gitlab.arturbosch.detekt", version = "detekt" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

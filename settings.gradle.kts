@@ -20,4 +20,5 @@ include(
     ":data:data",
     ":data:remote",
     ":domain",
+    ":ui:compose",
 )
