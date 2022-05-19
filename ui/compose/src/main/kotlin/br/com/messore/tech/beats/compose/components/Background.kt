@@ -22,7 +22,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.messore.tech.beats.compose.R
-import br.com.messore.tech.beats.compose.theme.MyBeatsComposeTheme
 
 @Composable
 fun ImageBackground(

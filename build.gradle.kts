@@ -25,9 +25,13 @@ detekt {
         "${projectDir}/app/src",
         "${projectDir}/build-logic/src",
         "${projectDir}/build-logic/convention/src",
+        "${projectDir}/core/view-model/src",
+        "${projectDir}/core/navigation/src",
         "${projectDir}/data/data/src",
         "${projectDir}/data/remote/src",
         "${projectDir}/domain/src",
+        "${projectDir}/feature/login/src",
+        "${projectDir}/ui/compose/src",
     )
     config = files("${projectDir}/detekt/detekt.yml")
     reportsDir = file("${projectDir}/build/reports/detekt/")

@@ -11,7 +11,9 @@ detekt = "1.20.0"
 
 # AndroidX
 androidxCore = "1.7.0"
+androidxLifecycle = "2.4.1"
 androidxLifecycleRuntime = "2.4.1"
+androidxNavigationCompose = "2.4.2"
 
 # Compose
 androidxCompose = "1.1.1"
@@ -22,7 +24,7 @@ androidxComposeMaterial3 = "1.0.0-alpha10"
 coroutines = "1.6.1"
 
 #Koin
-koin = "3.1.2"
+koin = "3.2.0"
 
 #Square Up
 retrofit = "2.9.0"
@@ -39,7 +41,9 @@ kotlin-gradle = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin",
 
 # AndroidX
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigationCompose" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycleRuntime" }
+androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 
 # Compose
 compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }
@@ -59,6 +63,7 @@ detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-form
 # Koin
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 
 #Square Up
 square-up-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }

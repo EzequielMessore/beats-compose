@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_title">My Beats</string>
+    <string name="login_subtitle">Specializing in Deejay Headphones</string>
+    <string name="login_user">User</string>
+    <string name="login_password">Password</string>
+    <string name="login_log_in">Log in</string>
+    <string name="login_un_registered">Not registered yet?</string>
+    <string name="login_subscribe">Sign Up</string>
+</resources>

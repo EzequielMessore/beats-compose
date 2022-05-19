@@ -17,8 +17,11 @@ dependencyResolutionManagement {
 rootProject.name = "beats-compose"
 include(
     ":app",
+    ":core:navigation",
+    ":core:view-model",
     ":data:data",
     ":data:remote",
     ":domain",
+    ":feature:login",
     ":ui:compose",
 )

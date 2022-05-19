@@ -1,6 +1,7 @@
 package br.com.messore.tech.beats.compose.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -19,7 +20,8 @@ private val TitleLarge = TextStyle(
     fontWeight = FontWeight.Bold,
     fontSize = 45.sp,
     lineHeight = 58.sp,
-    textAlign = TextAlign.Center
+    textAlign = TextAlign.Center,
+    color = Color.White,
 )
 
 private val LabelLarge = TitleLarge.copy(
