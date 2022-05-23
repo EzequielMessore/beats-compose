@@ -51,10 +51,10 @@ fun PrimaryButton(
 @Composable
 fun ProgressButton(
     text: String,
+    loading: Boolean,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     onClick: () -> Unit = {},
-    loading: Boolean
 ) {
     Box(modifier) {
         Crossfade(targetState = loading) { loading ->
@@ -62,7 +62,6 @@ fun ProgressButton(
                 PrimaryButton(
                     text = "",
                     enabled = false,
-                    onClick = onClick
                 )
             } else {
                 PrimaryButton(

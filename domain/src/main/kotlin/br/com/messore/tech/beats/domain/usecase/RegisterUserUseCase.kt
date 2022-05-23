@@ -9,6 +9,8 @@ class RegisterUserUseCase(
 
     suspend operator fun invoke(name: String, password: String) {
         val user = User(name = name, password = password)
+
+        repository.checkUser(user)
         repository.register(user)
     }
 }

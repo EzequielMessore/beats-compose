@@ -4,6 +4,6 @@ import br.com.messore.tech.beats.view.model.BaseViewModel
 
 internal class LoginViewModel : BaseViewModel<LoginState, LoginActions>(LoginState()) {
     fun onRegisterClicked() {
-        sendAction(LoginActions.SignUp)
+        sendAction(LoginActions.Failure("User already exists"))
     }
 }

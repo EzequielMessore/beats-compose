@@ -21,6 +21,7 @@ dependencies {
     implementation(project(":data:remote"))
     implementation(project(":domain"))
     implementation(project(":feature:login"))
+    implementation(project(":feature:register"))
     implementation(project(":ui:compose"))
 
     implementation(libs.androidx.core.ktx)

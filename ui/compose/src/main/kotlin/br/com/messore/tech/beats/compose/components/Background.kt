@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -24,6 +23,25 @@ import androidx.compose.ui.unit.sp
 import br.com.messore.tech.beats.compose.R
 
 @Composable
+fun Background(
+    content: @Composable () -> Unit = {}
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                brush = Brush.verticalGradient(
+                    0.1f to Color(0x4D7D22FF),
+                    0.4f to Color(0xCC441783),
+                    1f to Color.Black,
+                )
+            )
+    ) {
+        content()
+    }
+}
+
+@Composable
 fun ImageBackground(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
@@ -38,19 +56,7 @@ fun ImageBackground(
                 .alpha(0.3f)
         )
 
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .fillMaxHeight()
-                .background(
-                    brush = Brush.verticalGradient(
-                        0.1f to Color(0x807D22FF),
-                        1f to Color(0xFF441783),
-                    )
-                )
-        ) {}
-
-        content()
+        Background(content)
     }
 }
 

@@ -11,4 +11,8 @@ class UserRepositoryImpl constructor(
     override suspend fun register(user: User) {
         remoteDataSource.register(user)
     }
+
+    override suspend fun checkUser(user: User) {
+        remoteDataSource.checkUser(user)
+    }
 }

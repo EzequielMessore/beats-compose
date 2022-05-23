@@ -3,7 +3,7 @@ package br.com.messore.tech.beats.remote.extensions
 import br.com.messore.tech.beats.remote.exceptions.UnexpectedException
 import retrofit2.HttpException as RetrofitHttpException
 
-internal fun <T> Result<T>.getOrThrowDomainError(): T = getOrElse { throwable ->
+internal fun <T> Result<T>.getOrThrow(): T = getOrElse { throwable ->
     throw throwable.toDomainError()
 }
 

@@ -23,5 +23,7 @@ include(
     ":data:remote",
     ":domain",
     ":feature:login",
+    ":feature:register",
     ":ui:compose",
 )
+include(":core:view-extensions")

@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.messore.tech.beats.compose.components.ImageBackground
 import br.com.messore.tech.beats.compose.components.InputField
+import br.com.messore.tech.beats.compose.components.PasswordInputField
 import br.com.messore.tech.beats.compose.components.ProgressButton
 import br.com.messore.tech.beats.compose.theme.MyBeatsComposeTheme
 import br.com.messore.tech.beats.compose.theme.SPACING_1
@@ -88,7 +89,7 @@ private fun LoginForm(
 
     Spacer(modifier = Modifier.height(SPACING_3))
 
-    InputField(stringResource(id = R.string.login_password))
+    PasswordInputField(label = stringResource(id = R.string.login_password))
 
     Spacer(modifier = Modifier.height(SPACING_3))
 

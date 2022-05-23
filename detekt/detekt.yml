@@ -112,8 +112,6 @@ style:
     active: true
   FunctionOnlyReturningConstant:
     active: true
-  MandatoryBracesIfStatements:
-    active: true
   MandatoryBracesLoops:
     active: true
   MaxLineLength:
@@ -234,7 +232,6 @@ formatting:
     autoCorrect: true
   NoWildcardImports:
     active: true
-    autoCorrect: true
   PackageName:
     active: true
   ParameterListWrapping:
