@@ -1,12 +1,12 @@
 package br.com.messore.tech.beats.login
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import br.com.messore.tech.beats.compose.components.dialog.createDialog
 import br.com.messore.tech.beats.login.compose.LoginScreen
-import br.com.messore.tech.beats.login.view.model.LoginActions
+import br.com.messore.tech.beats.login.view.model.LoginAction
 import br.com.messore.tech.beats.login.view.model.LoginViewModel
 import br.com.messore.tech.beats.view.model.observe
 import org.koin.androidx.compose.getViewModel
@@ -18,27 +18,22 @@ internal fun LoginRoute(
 ) {
     val state by viewModel.state.collectAsState()
 
-    LoginScreen(
-        loading = state.loading,
-        onRegisterClick = viewModel::onRegisterClicked,
-        onLoginClick = viewModel::onRegisterClicked
-    )
+    LoginScreen(loading = state.loading)
 
     ObserveActions(viewModel, navigateToRegister)
 }
 
 @Composable
 private fun ObserveActions(viewModel: LoginViewModel, navigateToRegister: () -> Unit) {
-    val (show, title, message) = createDialog()
-
     viewModel.action.observe(LocalLifecycleOwner.current) { action ->
         when (action) {
-            is LoginActions.Failure -> {
-                show.value = true
-                title.value = "Login fail"
-                message.value = "Your login attempt failed"
+            is LoginAction.Failure -> {
+                Log.e("TAG", "ObserveActions: one error occurred")
             }
-            LoginActions.SignUp -> navigateToRegister()
+            LoginAction.SignUp -> navigateToRegister()
+            LoginAction.SignIn -> {
+                Log.e("TAG", "ObserveActions: logged with success")
+            }
         }
     }
 }

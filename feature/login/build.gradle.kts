@@ -5,6 +5,7 @@ plugins {
 dependencies {
     implementation(project(":core:view-model"))
     implementation(project(":core:navigation"))
+    implementation(project(":domain"))
     implementation(project(":ui:compose"))
 
     implementation(libs.koin.compose)

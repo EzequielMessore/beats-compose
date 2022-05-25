@@ -6,5 +6,6 @@ sealed interface UserDataSource {
     interface Remote : UserDataSource {
         suspend fun register(user: User)
         suspend fun checkUser(user: User)
+        suspend fun signIn(name: String, password: String): User
     }
 }

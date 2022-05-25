@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,7 +20,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalTextInputService
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.messore.tech.beats.compose.components.ImageBackground
@@ -29,12 +33,12 @@ import br.com.messore.tech.beats.compose.theme.MyBeatsComposeTheme
 import br.com.messore.tech.beats.compose.theme.SPACING_1
 import br.com.messore.tech.beats.compose.theme.SPACING_3
 import br.com.messore.tech.beats.login.R
+import br.com.messore.tech.beats.login.view.model.LoginViewModel
+import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun LoginScreen(
     loading: Boolean = false,
-    onLoginClick: () -> Unit = {},
-    onRegisterClick: () -> Unit = {},
 ) {
     ImageBackground {
         Column(
@@ -43,11 +47,7 @@ fun LoginScreen(
         ) {
             Header(modifier = Modifier.fillMaxHeight(0.4f))
 
-            LoginForm(
-                loading = loading,
-                onLoginClick = onLoginClick,
-                onRegisterClick = onRegisterClick,
-            )
+            LoginForm(loading = loading)
         }
     }
 }
@@ -75,8 +75,7 @@ private fun Header(modifier: Modifier = Modifier) = Column(modifier = modifier) 
 private fun LoginForm(
     loading: Boolean,
     modifier: Modifier = Modifier,
-    onRegisterClick: () -> Unit = {},
-    onLoginClick: () -> Unit = {},
+    viewModel: LoginViewModel = getViewModel(),
 ) = Column(
     modifier = modifier
         .fillMaxSize()
@@ -85,23 +84,35 @@ private fun LoginForm(
     verticalArrangement = Arrangement.Bottom,
     horizontalAlignment = Alignment.CenterHorizontally,
 ) {
-    InputField(stringResource(id = R.string.login_user))
+    val focus = LocalTextInputService.current
+    InputField(
+        stringResource(id = R.string.login_user),
+        onValueChange = viewModel::onUsernameChanged
+    )
 
     Spacer(modifier = Modifier.height(SPACING_3))
 
-    PasswordInputField(label = stringResource(id = R.string.login_password))
+    PasswordInputField(
+        label = stringResource(R.string.login_password),
+        onValueChange = viewModel::onPasswordChanged,
+        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+        keyboardActions = KeyboardActions {
+            focus?.hideSoftwareKeyboard()
+            viewModel.onSignInClicked()
+        }
+    )
 
     Spacer(modifier = Modifier.height(SPACING_3))
 
     ProgressButton(
         loading = loading,
-        onClick = onLoginClick,
+        onClick = viewModel::onSignInClicked,
         text = stringResource(R.string.login_log_in),
     )
 
     Spacer(modifier = Modifier.height(SPACING_3))
 
-    Registry(onRegisterClick = onRegisterClick)
+    Registry(onRegisterClick = viewModel::onSignUpClicked)
 }
 
 @Composable

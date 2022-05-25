@@ -8,6 +8,10 @@ class UserRepositoryImpl constructor(
     private val remoteDataSource: UserDataSource.Remote
 ) : UserRepository {
 
+    override suspend fun signIn(user: String, password: String): User {
+        return remoteDataSource.signIn(user, password)
+    }
+
     override suspend fun register(user: User) {
         remoteDataSource.register(user)
     }
