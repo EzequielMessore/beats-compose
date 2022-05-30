@@ -10,8 +10,14 @@ object LoginNavigation : Navigation {
     override val destination = "login_destination"
 }
 
-fun NavGraphBuilder.loginGraph(navigateToRegister: () -> Unit) {
+fun NavGraphBuilder.loginGraph(
+    navigateToRegister: () -> Unit,
+    navigateToHeadset: () -> Unit,
+) {
     composable(route = LoginNavigation.route) {
-        LoginRoute(navigateToRegister)
+        LoginRoute(
+            navigateToHeadset = navigateToHeadset,
+            navigateToRegister = navigateToRegister,
+        )
     }
 }

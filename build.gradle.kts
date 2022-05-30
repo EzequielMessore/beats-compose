@@ -30,7 +30,9 @@ detekt {
         "${projectDir}/data/data/src",
         "${projectDir}/data/remote/src",
         "${projectDir}/domain/src",
+        "${projectDir}/feature/headset/src",
         "${projectDir}/feature/login/src",
+        "${projectDir}/feature/register/src",
         "${projectDir}/ui/compose/src",
     )
     config = files("${projectDir}/detekt/detekt.yml")

@@ -5,6 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import br.com.messore.tech.beats.headset.navitation.HeadsetNavigation
+import br.com.messore.tech.beats.headset.navitation.headsetGraph
 import br.com.messore.tech.beats.login.navigation.LoginNavigation
 import br.com.messore.tech.beats.login.navigation.loginGraph
 import br.com.messore.tech.beats.register.navigation.RegisterNavigation
@@ -21,12 +23,21 @@ fun AppNavHost(
         startDestination = startDestination,
         modifier = modifier,
     ) {
-        loginGraph {
-            navController.navigate(RegisterNavigation.route)
-        }
+        loginGraph(
+            navigateToHeadset = {
+                navController.navigate(HeadsetNavigation.route) {
+                    popUpTo(LoginNavigation.route) { inclusive = true }
+                }
+            },
+            navigateToRegister = {
+                navController.navigate(RegisterNavigation.route)
+            },
+        )
 
         registerGraph {
             navController.popBackStack()
         }
+
+        headsetGraph()
     }
 }

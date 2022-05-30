@@ -34,15 +34,10 @@ private fun ObserveActions(
     onRegistered: () -> Unit,
     viewModel: RegisterViewModel = getViewModel(),
 ) {
-
     viewModel.action.observe(LocalLifecycleOwner.current) { action ->
         when (action) {
-            is RegisterActions.Failure -> {
-
-            }
-            RegisterActions.Registered -> {
-
-            }
+            is RegisterActions.Failure -> {}
+            RegisterActions.Registered -> onRegistered()
         }
     }
 }

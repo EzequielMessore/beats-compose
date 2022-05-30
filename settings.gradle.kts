@@ -18,12 +18,13 @@ rootProject.name = "beats-compose"
 include(
     ":app",
     ":core:navigation",
+    ":core:view-extensions",
     ":core:view-model",
     ":data:data",
     ":data:remote",
     ":domain",
+    ":feature:headset",
     ":feature:login",
     ":feature:register",
     ":ui:compose",
 )
-include(":core:view-extensions")

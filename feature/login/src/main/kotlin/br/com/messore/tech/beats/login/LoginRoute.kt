@@ -1,6 +1,5 @@
 package br.com.messore.tech.beats.login
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -13,6 +12,7 @@ import org.koin.androidx.compose.getViewModel
 
 @Composable
 internal fun LoginRoute(
+    navigateToHeadset: () -> Unit = {},
     navigateToRegister: () -> Unit = {},
     viewModel: LoginViewModel = getViewModel(),
 ) {
@@ -20,20 +20,23 @@ internal fun LoginRoute(
 
     LoginScreen(loading = state.loading)
 
-    ObserveActions(viewModel, navigateToRegister)
+    ObserveActions(
+        navigateToHeadset = navigateToHeadset,
+        navigateToRegister = navigateToRegister
+    )
 }
 
 @Composable
-private fun ObserveActions(viewModel: LoginViewModel, navigateToRegister: () -> Unit) {
+private fun ObserveActions(
+    navigateToHeadset: () -> Unit,
+    navigateToRegister: () -> Unit,
+    viewModel: LoginViewModel = getViewModel(),
+) {
     viewModel.action.observe(LocalLifecycleOwner.current) { action ->
         when (action) {
-            is LoginAction.Failure -> {
-                Log.e("TAG", "ObserveActions: one error occurred")
-            }
+            is LoginAction.Failure -> {}
+            LoginAction.SignIn -> navigateToHeadset()
             LoginAction.SignUp -> navigateToRegister()
-            LoginAction.SignIn -> {
-                Log.e("TAG", "ObserveActions: logged with success")
-            }
         }
     }
 }

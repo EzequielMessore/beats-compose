@@ -17,6 +17,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -85,6 +87,8 @@ private fun LoginForm(
     horizontalAlignment = Alignment.CenterHorizontally,
 ) {
     val focus = LocalTextInputService.current
+    val state by viewModel.state.collectAsState()
+
     InputField(
         stringResource(id = R.string.login_user),
         onValueChange = viewModel::onUsernameChanged
@@ -106,6 +110,7 @@ private fun LoginForm(
 
     ProgressButton(
         loading = loading,
+        enabled = state.buttonEnabled,
         onClick = viewModel::onSignInClicked,
         text = stringResource(R.string.login_log_in),
     )

@@ -20,6 +20,7 @@ dependencies {
     implementation(project(":data:data"))
     implementation(project(":data:remote"))
     implementation(project(":domain"))
+    implementation(project(":feature:headset"))
     implementation(project(":feature:login"))
     implementation(project(":feature:register"))
     implementation(project(":ui:compose"))
