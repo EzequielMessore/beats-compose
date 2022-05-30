@@ -1,5 +1,6 @@
 package br.com.messore.tech.beats.remote.di
 
+import br.com.messore.tech.beats.remote.service.HeadsetService
 import br.com.messore.tech.beats.remote.service.UserService
 import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
@@ -10,6 +11,7 @@ object ServicesModule {
     fun load() {
         loadKoinModules(module {
             factory { get<Retrofit>().create<UserService>() }
+            factory { get<Retrofit>().create<HeadsetService>() }
         })
     }
 }
