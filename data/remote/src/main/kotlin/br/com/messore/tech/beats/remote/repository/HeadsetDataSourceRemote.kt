@@ -14,4 +14,10 @@ class HeadsetDataSourceRemote constructor(
             headsetService.getHeadsets()
         }.getOrThrow()
     }
+
+    override suspend fun get(id: Int): Headset {
+        return runCatching {
+            headsetService.get(id)
+        }.getOrThrow()
+    }
 }

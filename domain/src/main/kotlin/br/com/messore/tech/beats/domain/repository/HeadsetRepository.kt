@@ -4,4 +4,5 @@ import br.com.messore.tech.beats.domain.model.Headset
 
 interface HeadsetRepository {
     suspend fun list(): List<Headset>
+    suspend fun get(id: Int): Headset
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="logout">Logout</string>
+    <string name="reviews">%d Reviews</string>
+    <string name="connection">Conexão</string>
+    <string name="compatibility">Compatibilidade</string>
+    <string name="power">Alimentação</string>
+    <string name="autonomy">Autonomia</string>
+    <string name="height">Altura</string>
+    <string name="capture">Captação</string>
+    <string name="buy">Comprar</string>
+</resources>

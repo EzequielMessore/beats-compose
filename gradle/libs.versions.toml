@@ -15,6 +15,9 @@ androidxLifecycle = "2.4.1"
 androidxLifecycleRuntime = "2.4.1"
 androidxNavigationCompose = "2.4.2"
 
+# Coil
+coilCompose = "2.1.0"
+
 # Compose
 androidxCompose = "1.1.1"
 androidxActivity = "1.4.0"
@@ -45,6 +48,9 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigationCompose" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycleRuntime" }
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+
+# Coil
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilCompose" }
 
 # Compose
 compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }

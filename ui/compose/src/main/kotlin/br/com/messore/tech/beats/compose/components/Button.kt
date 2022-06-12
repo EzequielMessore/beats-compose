@@ -37,6 +37,7 @@ fun PrimaryButton(
     text: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    fullSize: Boolean = true,
     onClick: () -> Unit = {}
 ) {
     Button(
@@ -44,6 +45,7 @@ fun PrimaryButton(
         onClick = onClick,
         enabled = enabled,
         modifier = modifier,
+        fullSize = fullSize,
         backgroundColor = MaterialTheme.colorScheme.primary,
     )
 }
@@ -92,6 +94,7 @@ internal fun Button(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    fullSize: Boolean = true,
     elevation: ButtonElevation? = ButtonDefaults.buttonElevation()
 ) {
     val buttonEnabledAlpha = 1f
@@ -113,7 +116,9 @@ internal fun Button(
         elevation = elevation,
         modifier = modifier
             .height(buttonSize)
-            .fillMaxWidth()
+            .run {
+                if(fullSize) fillMaxWidth() else this
+            }
             .alpha(backgroundAlpha)
     ) {
         Text(

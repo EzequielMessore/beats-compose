@@ -8,6 +8,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":ui:compose"))
 
+    implementation(libs.coil.compose)
     implementation(libs.koin.compose)
     implementation(libs.koin.android)
     implementation(libs.androidx.navigation.compose)

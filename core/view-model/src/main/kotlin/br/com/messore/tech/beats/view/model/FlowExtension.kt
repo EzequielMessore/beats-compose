@@ -20,7 +20,7 @@ fun <T> Flow<T>.observe(owner: LifecycleOwner, observe: (T) -> Unit) {
 suspend fun <T, R> T.runCatching(
     dispatcher: CoroutineDispatcher,
     execute: suspend () -> R,
-    onSuccess: R.() -> Unit = {},
+    onSuccess: (R) -> Unit = {},
     onFailure: Throwable.() -> Unit = {}
 ) {
     runCatching {

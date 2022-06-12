@@ -11,4 +11,8 @@ class HeadsetRepositoryImpl constructor(
     override suspend fun list(): List<Headset> {
         return remoteDataSource.list()
     }
+
+    override suspend fun get(id: Int): Headset {
+        return remoteDataSource.get(id)
+    }
 }
