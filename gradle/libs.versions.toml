@@ -19,7 +19,7 @@ androidxNavigationCompose = "2.4.2"
 coilCompose = "2.1.0"
 
 # Compose
-androidxCompose = "1.1.1"
+androidxCompose = "1.3.0"
 androidxActivity = "1.4.0"
 androidxComposeMaterial3 = "1.0.0"
 androidxComposeMaterialIcons = "1.1.1"
