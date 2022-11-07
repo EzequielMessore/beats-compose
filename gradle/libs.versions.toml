@@ -10,7 +10,7 @@ kotlin = "1.6.10"
 detekt = "1.20.0"
 
 # AndroidX
-androidxCore = "1.7.0"
+androidxCore = "1.9.0"
 androidxLifecycle = "2.4.1"
 androidxLifecycleRuntime = "2.4.1"
 androidxNavigationCompose = "2.4.2"
