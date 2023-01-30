@@ -32,7 +32,7 @@ koin = "3.2.0"
 
 #Square Up
 retrofit = "2.9.0"
-loggingInterceptor = "4.9.0"
+loggingInterceptor = "4.10.0"
 
 # Testing
 junit = "4.13.2"
