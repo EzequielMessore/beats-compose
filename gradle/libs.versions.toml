@@ -7,7 +7,7 @@ versionName = "1.0.0"
 
 androidGradlePlugin = "7.4.0"
 kotlin = "1.6.10"
-detekt = "1.20.0"
+detekt = "1.22.0"
 
 # AndroidX
 androidxCore = "1.7.0"
