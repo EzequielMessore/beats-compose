@@ -13,3 +13,7 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.androidx.navigation.compose)
 }
+
+android {
+    namespace = "br.com.messore.tech.beats.register"
+}

@@ -13,6 +13,7 @@ android {
             )
         }
     }
+    namespace = "br.com.messore.tech.beats"
 }
 
 dependencies {
