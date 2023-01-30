@@ -21,7 +21,7 @@ coilCompose = "2.1.0"
 # Compose
 androidxCompose = "1.3.0"
 androidxActivity = "1.6.1"
-androidxComposeMaterial3 = "1.0.0"
+androidxComposeMaterial3 = "1.0.1"
 androidxComposeMaterialIcons = "1.3.0"
 
 # Coroutines
