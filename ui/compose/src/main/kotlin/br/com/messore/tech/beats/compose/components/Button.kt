@@ -117,7 +117,7 @@ internal fun Button(
         modifier = modifier
             .height(buttonSize)
             .run {
-                if(fullSize) fillMaxWidth() else this
+                if (fullSize) fillMaxWidth() else this
             }
             .alpha(backgroundAlpha)
     ) {

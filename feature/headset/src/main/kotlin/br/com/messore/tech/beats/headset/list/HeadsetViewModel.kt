@@ -33,7 +33,6 @@ class HeadsetViewModel(
     }
 }
 
-
 data class HeadsetState(
     val loading: Boolean = false,
     val headsets: List<Headset> = emptyList()

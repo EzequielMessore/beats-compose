@@ -6,8 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import br.com.messore.tech.beats.headset.detail.navitation.HeadsetDetailNavigation
-import br.com.messore.tech.beats.headset.list.navitation.HeadsetNavigation
 import br.com.messore.tech.beats.headset.detail.navitation.headsetDetailGraph
+import br.com.messore.tech.beats.headset.list.navitation.HeadsetNavigation
 import br.com.messore.tech.beats.headset.list.navitation.headsetGraph
 import br.com.messore.tech.beats.login.navigation.LoginNavigation
 import br.com.messore.tech.beats.login.navigation.loginGraph
@@ -57,6 +57,5 @@ fun AppNavHost(
                 }
             }
         )
-
     }
 }

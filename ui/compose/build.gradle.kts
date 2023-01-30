@@ -5,3 +5,7 @@ plugins {
 dependencies {
     api(libs.bundles.compose)
 }
+
+android {
+    namespace = "br.com.messore.tech.beats.compose"
+}

@@ -7,3 +7,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.lifecycle.viewModelCompose)
 }
+
+android {
+    namespace = "br.com.messore.tech.beats.view.model"
+}
