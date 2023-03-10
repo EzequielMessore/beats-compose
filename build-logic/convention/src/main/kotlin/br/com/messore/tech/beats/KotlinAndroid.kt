@@ -39,7 +39,8 @@ fun Project.configureKotlinAndroid(
                 "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-Xopt-in=kotlinx.coroutines.FlowPreview",
                 "-Xopt-in=kotlin.Experimental",
-                "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi"
+                "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi",
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
             )
 
             jvmTarget = JavaVersion.VERSION_11.toString()

@@ -22,12 +22,13 @@ fun Project.configureAndroidCompose(
         }
 
         composeOptions {
-            kotlinCompilerExtensionVersion = libs.findVersion("androidxCompose").get().toString()
+            kotlinCompilerExtensionVersion = libs.findVersion("androidxComposeCompiler").get().toString()
         }
 
         kotlinOptions {
             freeCompilerArgs = freeCompilerArgs + listOf(
                 "-Xopt-in=kotlin.RequiresOptIn",
+                "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api",
             )
 
             jvmTarget = JavaVersion.VERSION_11.toString()

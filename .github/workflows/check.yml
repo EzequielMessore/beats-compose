@@ -1,0 +1,19 @@
+name: Detekt and Tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  detekt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Detekt Verification
+        run: ./gradlew detekt
+
+      - name: Running unit-tests
+        run: ./gradlew test

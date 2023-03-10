@@ -150,8 +150,6 @@ style:
     active: true
   UntilInsteadOfRangeTo:
     active: true
-  UnusedImports:
-    active: true
   UnusedPrivateClass:
     active: true
   UnusedPrivateMember:
@@ -173,11 +171,17 @@ style:
     active: true
   VarCouldBeVal:
     active: true
-  WildcardImport:
-    active: true
   ReturnCount:
     # This rule seems to fight early returns -> Disabled
     active: false
+
+naming:
+  FunctionNaming:
+    active: true
+    ignoreAnnotated:
+      - 'Compose'
+    functionPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    excludes: ['**/test/**', '**/androidTest/**']
 
 formatting:
   active: true
