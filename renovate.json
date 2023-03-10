@@ -10,5 +10,11 @@
   ],
   "additionalReviewers": [
     "EzequielMessore"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
   ]
 }
