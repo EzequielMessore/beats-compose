@@ -4,13 +4,6 @@
     "config:base"
   ],
   "labels": ["dependencies"],
-  "assignAutomerge": true,
-  "assignees": [
-    "EzequielMessore"
-  ],
-  "additionalReviewers": [
-    "EzequielMessore"
-  ],
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],
