@@ -28,7 +28,7 @@ androidxComposeMaterialIcons = "1.0.0"
 coroutines = "1.6.4"
 
 #Koin
-koin = "3.4.1"
+koin = "3.4.2"
 
 #Square Up
 retrofit = "2.9.0"
