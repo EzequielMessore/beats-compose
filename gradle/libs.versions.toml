@@ -12,7 +12,7 @@ detekt = "1.22.0"
 # AndroidX
 androidxCore = "1.9.0"
 androidxLifecycle = "2.6.0"
-androidxLifecycleRuntime = "2.6.0"
+androidxLifecycleRuntime = "2.6.1"
 androidxNavigationCompose = "2.5.3"
 
 # Coil
