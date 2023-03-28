@@ -29,7 +29,7 @@ androidxComposeMaterialIcons = "1.4.0"
 coroutines = "1.6.4"
 
 #Koin
-koinCore = "3.3.3"
+koinCore = "3.4.0"
 koinAndroid = "3.4.0"
 koinCompose = "3.4.3"
 
