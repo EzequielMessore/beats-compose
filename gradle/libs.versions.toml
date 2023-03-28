@@ -23,7 +23,7 @@ androidxCompose = "1.4.0"
 androidxActivity = "1.7.0"
 androidxComposeCompiler = "1.4.3"
 androidxComposeMaterial3 = "1.0.1"
-androidxComposeMaterialIcons = "1.0.0"
+androidxComposeMaterialIcons = "1.4.0"
 
 # Coroutines
 coroutines = "1.6.4"
