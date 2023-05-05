@@ -26,7 +26,7 @@ androidxComposeMaterial3 = "1.0.1"
 androidxComposeMaterialIcons = "1.4.3"
 
 # Coroutines
-coroutines = "1.6.4"
+coroutines = "1.7.0"
 
 #Koin
 koinCore = "3.4.0"
