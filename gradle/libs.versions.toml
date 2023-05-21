@@ -16,7 +16,7 @@ androidxLifecycleRuntime = "2.6.1"
 androidxNavigationCompose = "2.5.3"
 
 # Coil
-coilCompose = "2.3.0"
+coilCompose = "2.4.0"
 
 # Compose
 androidxCompose = "1.4.3"
