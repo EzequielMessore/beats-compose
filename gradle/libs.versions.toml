@@ -30,7 +30,7 @@ coroutines = "1.7.3"
 
 #Koin
 koinCore = "3.4.2"
-koinAndroid = "3.4.2"
+koinAndroid = "3.4.3"
 koinCompose = "3.4.5"
 
 #Square Up
