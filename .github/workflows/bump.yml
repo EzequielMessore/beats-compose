@@ -8,12 +8,59 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Get tag name
         id: get_tag
         run: echo "TAG_NAME=$(git tag --points-at ${{ github.event.release.commitish }})" >> $GITHUB_ENV
 
-      - name: Print tag name
+      - name: Create release branch
         run: |
-          echo "Tag name: ${{ env.TAG_NAME }}"
+          git config user.email "github-actions@github.com"
+          git config user.name "Github Actions"
+          git checkout -b release/${{ env.TAG_NAME }}
+
+      - name: Extract existing version code
+        run: |
+          export RELEASE_TAG=${{ env.TAG_NAME }}
+          
+          export LAST_VERSION=$(grep "versionCode" gradle/libs.versions.toml | awk -F '"' '{print $2}')
+          export NEW_VERSION=$(($LAST_VERSION + 1))
+          
+          echo "VERSION_NAME=$RELEASE_TAG" >> $GITHUB_ENV
+          echo "VERSION_CODE=$NEW_VERSION" >> $GITHUB_ENV
+
+      - name: Increase version code and change version name
+        run: |
+          sed -i 's/versionCode = \("[^"]*"\)/versionCode = "'${{ env.VERSION_CODE }}'"/' gradle/libs.versions.toml
+          sed -i 's/versionName = \("[^"]*"\)/versionName = "'${{ env.VERSION_NAME }}'"/' gradle/libs.versions.toml
+          
+          git config user.email "github-actions@github.com"
+          git config user.name "Github Actions"
+          git add gradle/libs.versions.toml
+          git commit -m "Bump version code and change version name"
+
+      - name: Push changes to new branch
+        run: git push origin release/${{ env.TAG_NAME }}
+
+      - name: Get release notes
+        id: release_notes
+        run: |
+          release_tag="${{ env.TAG_NAME }}"
+          release_id=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/tags/$release_tag" | jq '.id')
+          release_notes=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/$release_id" | jq -r '.body')
+          echo "::set-output name=notes::$release_notes"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v5.0.0
+        with:
+          commit-message: "Bump to ${{ env.VERSION_CODE }}"
+          title: "Release ${{ env.VERSION_NAME }}"
+          body: |
+            This pull request bumps the version to ${{ env.VERSION_NAME }}.
+            
+            Release Notes:
+            ${{ steps.release_notes.outputs.notes }}
+          base: "main"
+
+
