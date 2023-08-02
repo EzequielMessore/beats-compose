@@ -15,7 +15,7 @@ jobs:
         run: echo "TAG_NAME=$(git tag --points-at ${{ github.event.release.commitish }})" >> $GITHUB_ENV
 
       - name: Print tag name
-        run:
+        run: |
           echo "Tag name: ${{ env.TAG_NAME }}"
 
       - name: Create release branch
