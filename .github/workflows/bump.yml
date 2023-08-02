@@ -47,7 +47,7 @@ jobs:
       - name: Push changes to new branch
         run: git push origin release/${{ env.TAG_NAME }}
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get release notes
         id: release_notes
@@ -57,7 +57,7 @@ jobs:
           release_notes=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/$release_id" | jq -r '.body')
           echo "::set-output name=notes::$release_notes"
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5.0.0
