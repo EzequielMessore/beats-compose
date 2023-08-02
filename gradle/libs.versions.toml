@@ -11,7 +11,7 @@ detekt = "1.22.0"
 
 # AndroidX
 androidxCore = "1.9.0"
-androidxLifecycle = "2.6.0"
+androidxLifecycle = "2.6.1"
 androidxLifecycleRuntime = "2.6.0"
 androidxNavigationCompose = "2.5.3"
 
