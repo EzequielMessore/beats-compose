@@ -14,6 +14,10 @@ jobs:
         id: get_tag
         run: echo "TAG_NAME=$(git tag --points-at ${{ github.event.release.commitish }})" >> $GITHUB_ENV
 
+      - name: Print tag name
+        run:
+          echo "Tag name: ${{ env.TAG_NAME }}"
+
       - name: Create release branch
         run: |
           git config user.email "github-actions@github.com"
@@ -42,6 +46,8 @@ jobs:
 
       - name: Push changes to new branch
         run: git push origin release/${{ env.TAG_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Get release notes
         id: release_notes
@@ -50,6 +56,8 @@ jobs:
           release_id=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/tags/$release_tag" | jq '.id')
           release_notes=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/$release_id" | jq -r '.body')
           echo "::set-output name=notes::$release_notes"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5.0.0
