@@ -1,0 +1,19 @@
+name: Get Tag on Release
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  get-tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Get tag name
+        id: get_tag
+        run: echo "TAG_NAME=$(git tag --points-at ${{ github.event.release.commitish }})" >> $GITHUB_ENV
+
+      - name: Print tag name
+        run: |
+          echo "Tag name: ${{ env.TAG_NAME }}"
