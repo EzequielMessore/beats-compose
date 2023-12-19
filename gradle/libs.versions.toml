@@ -31,7 +31,7 @@ coroutines = "1.7.3"
 #Koin
 koinCore = "3.5.2"
 koinAndroid = "3.5.3"
-koinCompose = "3.5.0"
+koinCompose = "3.5.3"
 
 #Square Up
 retrofit = "2.9.0"
